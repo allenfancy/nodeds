@@ -8,7 +8,7 @@ var multer = require('multer');
 var session = require('express-session');
 
 global.dbHelper = require('./common/dbHelper');
-global.db = mongoose.connect('mongodb://lookersup:wt6815876@ds047752.mongolab.com:47752/lookersup');
+global.db = mongoose.connect('xxxxxx');
 
 app.use(session({
 	secret:'secret',
