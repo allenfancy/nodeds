@@ -1,7 +1,8 @@
+var Commodity = require('../model/commodity');
+
 module.exports = function(app){
 	app.get('/home',function(req,res){
 		if(req.session.user){
-			var Commodity = global.dbHelper.getModel('commodity');
 			Commodity.find({},function(error,docs){
 				res.render('home',{Commoditys:docs})
 			});
@@ -16,7 +17,6 @@ module.exports = function(app){
 	});
 	
 	app.post('/addcommodity',function(req,res){
-		var Commodity = global.dbHelper.getModel('commodity');
 		Commodity.create({
 			name:req.body.name,
 			price:req.body.price,

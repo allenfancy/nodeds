@@ -1,11 +1,12 @@
+var User = require('../model/user');
+
 module.exports = function ( app ) {
     app.get('/login',function(req,res){
         res.render('login');
     });
     
     app.post('/login',function(req,res){
-    	var User = global.dbHelper.getModel('user'),
-    		uname = req.body.uname;
+    	var	uname = req.body.uname;
     	User.findOne({name:uname},function(error,doc){
     		if(error){
     			res.send(500);
